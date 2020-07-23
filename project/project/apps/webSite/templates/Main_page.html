@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>خوشنویس</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Meta Tag-->
+    <meta name="description" content="آموزش کلی انواع متدهای خوشنویسی">
+    <!--Meta keyword-->
+    <meta name="keyword" content="آموزش کلی انواع متدهای خوشنویسی">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <!--    <link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <!--    Bootsrap RTL-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap-rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <div class="site-logo mr-auto w-25"><a href="Main_page.html">خوشنویس</a></div>
+
+                <div class="mx-auto text-center">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                            <li><a href="#home-section" class="nav-link">خانه</a></li>
+                            <li><a href="#courses-section" class="nav-link">دوره های آموزشی</a></li>
+                            <li><a href="#programs-section" class="nav-link">چرا خوشنویس؟</a></li>
+                            <li><a href="#teachers-section" class="nav-link">اساتید ما</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="ml-auto w-25">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                            <li class="cta"><a href="#contact-section" class="nav-link"><span>ارتباط با ما</span></a>
+                            </li>
+
+                            {% if user.is_authenticated %}
+                            <li class="cta"><a href="{% url 'user:profile' %}" class="nav-link"><span>صفحه شخصی</span></a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </nav>
+                    <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+                            class="icon-menu h3"></span></a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="intro-section" id="home-section">
+
+        <div class="slide-1" style="background-image: url('/static/pics/hero_1.jpg');" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4">
+                                <!-------------------------------------------------------------------------------------------------->
+                                <h1 data-aos="fade-up" data-aos-delay="100"
+                                    style="font-family: 'B Nazanin'  ; font-size: 5em">
+                                    خوشنویس</h1>
+                                <p class="mb-4" data-aos="fade-up" data-aos-delay="200">اولین استارت آپ آموزش خوشنویسی
+                                    در ایران </p>
+                                <button data-aos="fade-up" data-aos-delay="300" type="button"
+                                        class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">بیشتر
+                                    بدانید...
+                                </button>
+
+                                <div class="container">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <!--                                                    <button type="button" class="close" data-dismiss="modal">&times;-->
+                                                    <!--                                                    </button>-->
+                                                    <h5 class="modal-title" style="margin: 2em auto;">چرا خوشنویس؟</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                    <ol>
+                                                        <li> کاهش هزینه ها نسبت به دوره های حضوری</li>
+                                                        <li> عدم نیاز به تخصیص زمان مشخص به یادگیری</li>
+                                                        <li> عدم نیاز به رفت و آمد</li>
+                                                        <li> ایجاد درآمد برای اساتید و هنرمندان</li>
+                                                        <li> استفاده از مزایای آموزش مجاز در دوران همه گیری کرونا
+                                                        </li>
+                                                    </ol>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        بستن
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--New Code start-->
+                                <div class="modal fade" id="sign_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <form method="post" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title w-100 font-weight-bold">ثبت نام</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body mx-3">
+                                                <div class="md-form mb-4">
+                                                    <i class="fas fa-user prefix grey-text"></i>
+
+                                                    <input name="username_sign_up" type="text" id="orangeForm-name" class="form-control validate" placeholder="نام کاربری">
+
+                                                </div>
+
+                                                <div class="md-form mb-4">
+                                                    <i class="fas fa-lock prefix grey-text"></i>
+                                                    <input name="password_sign_up" type="password" id="orangeForm-pass" class="form-control validate" placeholder="کلمه عبور">
+
+                                                </div>
+
+                                                <div class="md-form mb-4">
+                                                    <i class="fas fa-lock prefix grey-text"></i>
+                                                    <input name="first_name_sign_up" type="text" id="orangeForm-pass" class="form-control validate" placeholder="نام">
+
+                                                </div>
+
+                                                <div class="md-form mb-4">
+                                                    <i class="fas fa-lock prefix grey-text"></i>
+                                                    <input name="last_name_sign_up" type="text" id="orangeForm-pass" class="form-control validate" placeholder="نام خانوادگی">
+
+                                                </div>
+
+                                                <div class="md-form mb-4">
+                                                    <i class="fas fa-envelope prefix grey-text"></i>
+                                                    <input name="email_sign_up" type="email" id="orangeForm-email" class="form-control validate" placeholder="ایمیل">
+                                                </div>
+
+                                                <div class="md-form mb-4">
+                                                    <i class="fas fa-lock prefix grey-text"></i>
+                                                    <input name="phone_sign_up" type="text" id="orangeForm-pass" class="form-control validate" placeholder="تلفن همراه">
+
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button name="sign_up" class="btn btn-deep-orange">ثبت نام</button>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--New Code End-->
+
+                                <!-------------------------------------------------------------------------------------------------->
+
+                            </div>
+
+                            <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+
+                                {% if not user.is_authenticated  %}
+                                <form action="" method="post" class="form-box">
+                                    <h3 class="h4 text-black mb-4 text-center">ورود به حساب کاربری</h3>
+                                    <div class="form-group text-center">
+                                        <label>
+                                            <input name="username" type="text" class="form-control"
+                                                   placeholder="نام کاربری">
+                                                   {% csrf_token %}
+                                        </label>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <label>
+                                            <input name="password" type="password" class="form-control" placeholder="رمز ورود">
+                                        </label>
+                                    </div>
+                                    <div class="text-center">
+                                        <!-- Forgot password -->
+                                        <a href="">رمز ورود خود را فراموش کرده ام</a>
+                                    </div>
+                                    <!--New Code End - added several text-center to classes-->
+                                    <br>
+                                    <div class="form-group" style="text-align: center">
+                                        <input name="login" type="submit" class="btn btn-primary" value="ورود" style="width: 20em">
+                                        <!--New Code start-->
+
+                                        <button  data-aos="fade-up" data-aos-delay="300" type="button"
+                                                class="btn btn-info btn-lg" data-toggle="modal" data-target="#sign_up">
+                                            ثبت نام
+                                        </button>
+                                        <!--New Code End-->
+                                    </div>
+                                </form>
+
+                                {% endif %}
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="site-section courses-title" id="courses-section">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+                    <h2 class="section-title">دوره های آموزشی</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
+            <div class="container">
+                <div class="row">
+
+                    <div class="owl-carousel col-12 nonloop-block-14">
+
+                        <div class="course bg-white h-100 align-self-stretch">
+                            <figure class="m-0">
+                                <a href="course_explain.html"><img src="{% static 'pics/1.png' %}" alt="Image" class="img-fluid"></a>
+                            </figure>
+                            <div class="course-inner-text py-4 px-4">
+                                <span class="course-price">200 هزار تومان</span>
+                                <div class="meta"><span class="icon-clock-o"></span>10 هفته</div>
+                                <h3><a href="{% url 'motevaset' %}"> دوره خوشنویسی سطح متوسط</a></h3>
+                                <p>مناسب افرادی که میخواهند زیباتر بنویسند اولین قدم در یادگیری خوشنویسی </p>
+                            </div>
+                            <div class="d-flex border-top stats">
+                                <div class="py-3 px-4"><span class="icon-users  d-inline-block"></span> 250 هنرجو
+                                </div>
+                                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 26</div>
+                            </div>
+                        </div>
+
+                        <div class="course bg-white h-100 align-self-stretch">
+                            <figure class="m-0">
+                                <a href="course_explain.html"><img src="{% static 'pics/2.png' %}" alt="Image" class="img-fluid"></a>
+                            </figure>
+                            <div class="course-inner-text py-4 px-4">
+                                <span class="course-price">200 هزارتومان</span>
+                                <div class="meta"><span class="icon-clock-o"></span>12 هفته</div>
+                                <h3><a href="{% url 'khosh' %}"> دوره خوشنویسی سطح خوش</a></h3>
+                                <p> یادگیری اصول خوشنویسی </p>
+                            </div>
+                            <div class="d-flex border-top stats">
+                                <div class="py-3 px-4"><span class="icon-users d-inline-block"></span>226 هنرجو</div>
+                                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 20</div>
+                            </div>
+                        </div>
+
+                        <div class="course bg-white h-100 align-self-stretch">
+                            <figure class="m-0">
+                                <a href="course_explain.html"><img src="{% static 'pics/3.png' %}" alt="Image" class="img-fluid"></a>
+                            </figure>
+                            <div class="course-inner-text py-4 px-4">
+                                <span class="course-price">250 هزار تومان</span>
+                                <div class="meta"><span class="icon-clock-o"></span>10 هفته</div>
+                                <h3><a href="{% url 'awli' %}">دوره خوشنویسی سطح عالی</a></h3>
+                                <p>ورود به دنیای حرفه ای ها - معادل مدرک فوق دیپلم</p>
+                            </div>
+                            <div class="d-flex border-top stats">
+                                <div class="py-3 px-4"><span class="icon-users d-inline-block"></span> 106 هنرجو</div>
+                                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 10</div>
+                            </div>
+                        </div>
+
+
+                        <div class="course bg-white h-100 align-self-stretch">
+                            <figure class="m-0">
+                                <a href="course_explain.html"><img src="{% static 'pics/4.png' %}" alt="Image" class="img-fluid"></a>
+                            </figure>
+                            <div class="course-inner-text py-4 px-4">
+                                <span class="course-price">250 هزار تومان</span>
+                                <div class="meta"><span class="icon-clock-o"></span>12 هفته</div>
+                                <h3><a href="{% url 'momtaz' %}">دوره خوشنویسی سطح ممتاز </a></h3>
+                                <p> حد اعلای خوشنویسی - معادل مدرک لیسانس </p>
+                            </div>
+                            <div class="d-flex border-top stats">
+                                <div class="py-3 px-4"><span class="icon-users d-inline-block ml-1"></span>12 هفته
+                                </div>
+                                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 8</div>
+                            </div>
+                        </div>
+
+                        <!--                    <div class="course bg-white h-100 align-self-stretch">-->
+                        <!--                        <figure class="m-0">-->
+                        <!--                            <a href="course-single.html"><img src="pics/img_5.jpg" alt="Image" class="img-fluid"></a>-->
+                        <!--                        </figure>-->
+                        <!--                        <div class="course-inner-text py-4 px-4">-->
+                        <!--                            <span class="course-price">98 هزارتومان</span>-->
+                        <!--                            <div class="meta"><span class="icon-clock-o"></span>4 درس / 12 هفته</div>-->
+                        <!--                            <h3><a href="#">آموزش SEO</a></h3>-->
+                        <!--                            <p>بهینه سازی سایت </p>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="d-flex border-top stats">-->
+                        <!--                            <div class="py-3 px-4"><span class="icon-users d-inline-block"></span> 2,193 دانش آموز</div>-->
+                        <!--                            <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+
+                        <div class="course bg-white h-100 align-self-stretch">
+                            <figure class="m-0">
+                                <a href="course_explain.html"><img src="{% static 'pics/5.png' %}" alt="Image" class="img-fluid"></a>
+                            </figure>
+                            <div class="course-inner-text py-4 px-4">
+                                <span class="course-price">20 هزار تومان</span>
+                                <div class="meta"><span class="icon-clock-o"></span>*</div>
+                                <h3><a href="{% url 'test' %}">آزمون تعیین سطح</a></h3>
+                                <p>توسط اساتید ما تعیین سطح شده و نقطه شروغ مناسب را انتخاب کنید.</p>
+                            </div>
+                            <div class="d-flex border-top stats">
+                                <div class="py-3 px-4"><span class="icon-users d-inline-block"></span> 2,193 هنرجو</div>
+                                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 12</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            <div class="row justify-content-center">
+                <div class="col-7 text-center">
+                    <button class="customPrevBtn btn btn-primary m-1">بعدی</button>
+                    <button class="customNextBtn btn btn-primary m-1">قبلی</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="site-section" id="programs-section">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+                    <h2 class="section-title">ویژگی های ما</h2>
+                    <p>برتری "خوشنویس" بر سایر روش های یادگیری خوشنویسی چیست؟</p>
+                </div>
+            </div>
+
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-7 mb-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{% static 'pics/undraw_youtube_tutorial.svg' %}" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-lg-4 mr-auto order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="text-black mb-4">آموزش آنلاین، آینده آموزش </h2>
+                    <p class="mb-4">در یادگیری به روش آنلاین دیگر نیاز به حضور فیزیکی و تخصیص زمان معین به آموزش نبوده و
+                        در کمال راحتی به یادگیری خوشنویسی خواهید پرداخت.</p>
+
+                    <div class="d-flex align-items-center custom-icon-wrap mb-3">
+                        <span class="custom-icon-inner ml-3"><span class="icon icon-graduation-cap"></span></span>
+                        <div><h3 class="m-0">اولین پلتفرم آموزش خوشنویسی آنلاین</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap">
+                        <span class="custom-icon-inner ml-3"><span class="icon icon-university"></span></span>
+                        <div><h3 class="m-0">52 استاد از 9 شهر ایران</h3></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{% static 'pics/undraw_teaching.svg' %}" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="text-black mb-4">ما در آموزش ممتاز هستیم</h2>
+                    <p class="mb-4">با استفاده از روش آموزش آنلاین خوشنویس، از سراسر دنیا به برترین اساتید خوشنویسی
+                        دسترسی خواهید داشت.</p>
+
+                    <div class="d-flex align-items-center custom-icon-wrap mb-3">
+                        <span class="custom-icon-inner ml-3"><span class="icon icon-graduation-cap"></span></span>
+                        <div><h3 class="m-0">بیش از 1000 هنرجو</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap">
+                        <span class="custom-icon-inner ml-3"><span class="icon icon-handshake-o"></span></span>
+                        <div><h3 class="m-0">میزان رضایت از کلاس ها: 94.2%</h3></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{% static 'pics/undraw_teacher.svg' %}" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="text-black mb-4"> اخد مدرک رسمی و معتبر</h2>
+                    <p class="mb-4">آماده سازی برای شرکت در آزمون های انجمن خوشنویسان ایران</p>
+
+                    <div class="d-flex align-items-center custom-icon-wrap mb-3">
+                        <span class="custom-icon-inner ml-3"><span class="icon icon-graduation-cap"></span></span>
+                        <div><h3 class="m-0">معادل مدارک دانشگاهی</h3></div>
+                    </div>
+
+                    <!--                    <div class="d-flex align-items-center custom-icon-wrap">-->
+                    <!--                        <span class="custom-icon-inner ml-3"><span class="icon icon-university"></span></span>-->
+                    <!--                        <div><h3 class="m-0"></h3></div>-->
+                    <!--                    </div>-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="site-section" id="teachers-section">
+        <div class="container">
+
+            <div class="row mb-5 justify-content-center">
+                <div class="col-lg-7 mb-5 text-center" data-aos="fade-up" data-aos-delay="">
+                    <h2 class="section-title">اساتید ما</h2>
+                    <p class="mb-5">وجود اساتید با تجربه برای پیشرفت گام به گام شما</p>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="teacher text-center">
+                        <img src="{% static 'pics/Person.png' %}" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+                        <div class="py-2">
+                            <h3 class="text-black">یاسین بصیری</h3>
+                            <p class="position">مدرک استادی از انجمن خوشنویسان ایران</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="teacher text-center">
+                        <img src="{% static 'pics/Person.png' %}" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+                        <div class="py-2">
+                            <h3 class="text-black">میلاد سراج زاده</h3>
+                            <p class="position">مدرک استادی از انجمن خوشنویسان ایران</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="teacher text-center">
+                        <img src="{% static 'pics/Person.png' %}" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+                        <div class="py-2">
+                            <h3 class="text-black">علی دریجانی</h3>
+                            <p class="position">مدرک استادی از انجمن خوشنویسان ایران</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="teacher text-center">
+                        <img src="{% static 'pics/Person.png' %}" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+                        <div class="py-2">
+                            <h3 class="text-black">محمد حاتم</h3>
+                            <p class="position">مدرک استادی از انجمن خوشنویسان ایران</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-image overlay" style="background-image: url('/static/pics/hero_1.jpg');">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-8 text-center testimony">
+
+                <!--                <img src="pics/person_4.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">-->
+                <h3 class="mb-4">پیامبر اکرم(ص)</h3>
+                <blockquote>
+                    <p>خط زيبا براي نيازمندان ثروت و براي اغنياء زيبايي و براي بزرگان كمال است.</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section pb-0">
+
+    <div class="future-blobs">
+        <div class="blob_2">
+            <img src="{% static 'pics/blob_2.svg' %}" alt="Image">
+        </div>
+        <div class="blob_1">
+            <img src="{% static 'pics/blob_1.svg' %}" alt="Image">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mb-5 justify-content-center" data-aos="fade-up" data-aos-delay="">
+            <div class="col-lg-7 text-center">
+                <h2 class="section-title">دلایل انتخاب ما</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ml-auto align-self-start" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="p-4 rounded bg-white why-choose-us-box">
+
+                    <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
+                        <div class="ml-3"><span class="custom-icon-inner"><span
+                                class="icon icon-graduation-cap"></span></span></div>
+                        <div><h3 class="m-0">2500 هنرجوی فعال</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
+                        <div class="ml-3"><span class="custom-icon-inner"><span
+                                class="icon icon-file"></span></span>
+                        </div>
+                        <div><h3 class="m-0">مدرک معتبر بین المللی</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
+                        <div class="ml-3"><span class="custom-icon-inner"><span
+                                class="icon icon-money"></span></span></div>
+                        <div><h3 class="m-0">کاهش هزینه ها نسبت به دوره های حضوری</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
+                        <div class="ml-3"><span class="custom-icon-inner"><span
+                                class="icon icon-timer"></span></span>
+                        </div>
+                        <div><h3 class="m-0"> عدم نیاز به تخصیص زمان مشخص به یادگیری</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
+                        <div class="ml-3"><span class="custom-icon-inner"><span
+                                class="icon icon-attach_money"></span></span></div>
+                        <div><h3 class="m-0"> ایجاد درآمد برای اساتید و هنرمندان</h3></div>
+                    </div>
+
+                    <div class="d-flex align-items-center custom-icon-wrap custom-icon-light">
+                        <div class="ml-3"><span class="custom-icon-inner"><span
+                                class="icon icon-person"></span></span>
+                        </div>
+                        <div><h3 class="m-0">بهترین اساتید کشوری</h3></div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-lg-7 align-self-end" data-aos="fade-left" data-aos-delay="200">
+                <img src="{% static 'pics/student_PNG151.png' %}" alt="Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-section bg-light" id="contact-section">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+
+
+                <h2 class="section-title mb-3">24 ساعته پاسخگوی شما هستیم</h2>
+                <form method="post" data-aos="fade">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <input name="ticket_name" type="text" class="form-control" placeholder="نام">
+                        </div>
+                        <div class="col-md-6">
+                            <input name="ticket_last_name" type="text" class="form-control" placeholder="نام خانوادگی">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input name="ticket_subject" type="text" class="form-control" placeholder="موضوع">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input  name="ticket_email" type="email" class="form-control" placeholder="ایمیل">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                                <textarea name="ticket_text" class="form-control" id="" cols="30" rows="10"
+                                          placeholder="پیام خود را اینجا تایپ کنید..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+
+                            <input name="ticket" type="submit" class="btn btn-primary py-3 px-5 btn-block btn-pill"
+                                   value="ارسال پیام">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer-section bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>در مورد خوشنویس</h3>
+                <p>خوشنویس در سال 1399 با هدف ترویج هنر خوشنویسی در جامعه فعالیت خود را در زمینه آموزش آنلاین خوشنویسی
+                    آغاز نمود. این استارت آپ
+                    با هدف جلب رضایت مشتریان خود و ارائه خدمات برتر همواره کوشیده است تا با بهره گیری از اساتید بنام و
+                    بروزرسانی مرتب روش های آموزشی خود جزء بهترین ها باشد.
+
+                </p>
+            </div>
+
+            <div class="col-md-3 ml-auto">
+                <h3>لینک ها</h3>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">خانه</a></li>
+                    <li><a href="#">دوره های آموزشی</a></li>
+                    <li><a href="#">برنامه ها</a></li>
+                    <li><a href="#">اساتید</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h3>اشتراک</h3>
+                <p>برای عضویت در خبرنامه در کادر زیر ایمیل خود را وارد کنید</p>
+                <form action="#" class="footer-subscribe">
+                    <div class="d-flex mb-5">
+                        <input type="text" class="form-control rounded-0" placeholder="ایمیل">
+                        <input type="submit" class="btn btn-primary rounded-0" value="اشتراک">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                    CopyRight &copy;<script>document.write(new Date().getFullYear());</script>
+                    All Rights reserved
+                </div>
+                <p>Made with <span class="icon icon-heart"></span> in Isfahan By DBSH</p>
+
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- .site-wrap -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/jquery.sticky.js' %}"></script>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

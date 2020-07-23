@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} ساخت حساب جدید {% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class=" jumbotron col-4 ">
+            <h3 class="text-center mb-5" >ساخت حساب کاربری</h3>
+            <form action="" method="post">
+                <div class="form-group text-center">
+                    {% csrf_token %}
+                    <label class="mb-2"  for="id_username">نام کاربری</label>
+                    {{ form.username }}
+                    <label class="mb-2" for="id_password">کلمه عبور</label>
+                    {{ form.password }}
+                    <label class="mb-2" for="id_password2">تکرار کلمه عبور</label>
+                    {{ form.password2 }}
+                    <label class="mb-2" for="id_phone_number">تلفن همراه</label>
+                    {{ form.phone_number }}
+                </div>
+                <div class="row justify-content-center">
+                <button type="submit" class="btn btn-primary mb-2">ایجاد</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock body %}

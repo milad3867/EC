@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>صفحه شخصی من</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap-rtl.css'  %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'  %}">
+	<link type="text/css" href="{% static 'css/style2222.css'  %}" rel="stylesheet " />
+</head>
+<body class="profile-page" data-spy="scroll" data-target=".navbar" data-offset="50">
+<!-- The HEADER -->
+	<header id="header">
+		<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="navigation-example">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'index' %}">صفحه اصلی</a></li>
+						<li><a href="{% url 'user:logout' %}">خروج</a></li>
+<!--						<li class="active"><a href="#">؟؟؟؟؟؟؟؟</a></li>-->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Profile Picture -->
+
+		{% if user.profile.image %}
+			<img id="profilePic" src="{% url 'content:getProfileImage' id=user.profile.pk %}" alt="">
+		{% endif %}
+
+
+		<div class="container-fluid" id="subheader">
+			<div class="row" id="row">
+				<div class="col-md-12">
+					<!-- <h1 id="name">{{ user.first_name }} {{ user.last_name }}</h1> -->
+				</div>
+			</div>
+		</div>
+	</header>
+<!-- sidebar -->
+	<main>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 col-sm-4 col-xs-12">
+					<!-- navigation side bar + tab -->
+					<ul class="nav nav-pills nav-pills-success nav-stacked">
+						<li class="active"><a data-toggle="pill" href="#about">اطلاعات کاربری</a></li>
+
+						{% if user.profile.type_of_profile == 'st'  %}
+							<li><a data-toggle="pill" href="#subset">تمرینات جدید</a></li>
+							<li><a data-toggle="pill" href="#adventures">ارسال تمرین</a></li>
+
+						{% else %}
+							<li><a data-toggle="pill" href="#subset">پاسخ های ارسالی</a></li>
+							<li><a data-toggle="pill" href="#adventures">تعریف تمرین</a></li>
+
+						{% endif %}
+
+						<li><a data-toggle="pill" href="#contact">ارتباط با پشتیبان سایت</a></li>
+					</ul>
+
+					<!-- recent activity -->
+					<div class="recent">
+						<h4>رویداد ها </h4>
+						<ul>
+							<li> شما یک تمرین جدید از طرف <a class="text-success">مدرس دوره آموزش خوشنویسی سطح عالی
+							</a> دارید.</li>
+						</ul>
+						<a class="text-success more2">بیشتر</a>
+					</div>
+				</div>
+				<!-- start tab content -->
+				<div class="col-md-6 col-sm-8 col-xs-12">
+					<div class="tab-content">
+						<!-- about -->
+						<div id="about" class="tab-pane fade in active">
+							<h3>بیوگرافی</h3>
+							<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+							<p><span><i class="fa fa-user-circle"></i><strong>نام:</strong></span><input name="update_first_name" type="text" placeholder="{{ user.first_name }}"></p>
+							<p><span><i class="fa fa-user-circle"></i><strong>نام خانوادگی:</strong></span><input name="update_last_name" type="text" placeholder="{{ user.last_name }}"></p>
+							<p><span><i class="fa fa-user-circle-o"></i><strong>نام کاربری :</strong></span> <input readonly type="text" placeholder="{{ user.username }}"> </p>
+							<p><span><i class="fa fa-envelope"></i><strong>پست الکترونیک :</strong></span> <input name="update_email" type="text" placeholder="{{ user.email }}"> </p>
+							<p><span><i class="fa fa-phone"></i><strong>تلفن تماس :</strong></span> <input name="update_phone_number" type="text" placeholder="{{ user.profile.phone_number }}"> </p>
+							<label for="picture">تصویر پروفایل</label>
+							<input type="file" name="picture"> 
+							<br>
+							<button name="update" class="btn btn-success">ذخیره تغیرات</button>
+							</form>
+						</div>
+						<!-- adventures and blog -->
+						<div id="adventures" class="tab-pane fade">
+
+							{% if user.profile.type_of_profile == 'st' %}
+							<h3>ارسال پاسخ</h3>
+							{% for a in assignments %}
+								<h4><i class="fa fa-lightbulb-o"></i> {{a.title}} </h4>
+								<div class="form-group">
+									<form method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+										<input class="btn mb-2" type="file" name="answer">
+										<input type="hidden" name="id" value="{{a.pk}}">
+										<button type="submit" class="btn btn-primary">Upload</button>
+									  </form>
+								</div>
+							{% endfor %}
+
+							{% else %}
+
+							<h3>تعریف تمرین</h3>
+
+							<div class="form-group">
+								<form method="post" enctype="multipart/form-data">
+								<label for="student">تعریف تمرین برای:</label>
+								<select class="form-control" name="student_id" id="student_select">
+
+								  {% for student in students %}
+								  <option value="{{student.pk}}">{{student.user.first_name}} {{student.user.last_name}}</option>
+								  {% endfor %}
+
+
+
+								</select>
+								<br>
+								{% csrf_token %}
+								<input class="form-control" type="text" name="a_title" id="a-title" placeholder="عنوان تمرین">
+								<br>
+								<input type="file" name="assignment">
+								<br>
+								<button type="submit" class="btn btn-primary">تعریف تمرین</button>
+							</form>
+							  </div>
+
+
+							{% endif %}
+
+
+						</div>
+
+						<!-- subset -->
+						<div id="subset" class="tab-pane fade">
+
+							{% if user.profile.type_of_profile == 'st' %}
+							<h3>تمرینات جدید</h3>
+
+
+							{% for a in assignments %}
+								<h4><i class="fa fa-lightbulb-o"></i> {{a.title}} </h4>
+								<button type="button" class="btn btn-warning "><a href="{% url 'content:getAssignment' id=a.pk %}">دریافت سرمشق</a></button>
+							{% endfor %}
+
+							{% else %}
+
+							<h3>پاسخ های ارسالی</h3>
+
+
+							{% for a in assignments %}
+
+							{% if a.file_student %}
+
+								<h4><i class="fa fa-lightbulb-o"></i>عنوان تمرین: {{a.title}} </h4>
+								<h5>از طرف:{{a.student.user.first_name}} {{a.student.user.last_name}}</h5>
+								<button type="button" class="btn btn-warning "><a href="{% url 'content:getAnswer' id=a.pk %}">دریافت پاسخ</a></button>
+							{% endif %}
+							
+							{% endfor %}
+
+							{% endif %}
+
+						</div>
+
+						<!-- contact form -->
+						<div id="contact" class="tab-pane fade">
+							<h3>ارتباط با پشتیبان خوشنویس</h3>
+							<div class="card card-signup">
+								<form class="form" method="post" action="">
+									{% csrf_token %}
+									<div class="content">
+										<div class="input-group">
+											<span class="input-group-addon">
+											  <i class="fa fa-envelope"></i>پست الکترونیک
+											</span>
+											<input name="ticket_email" type="text" class="form-control" placeholder="{{ user.email }}">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon">
+											  <i class="fa fa-pencil"></i>متن پیام
+											</span>
+											<textarea name="ticket_text" placeholder="متن پیام ..." class="form-control" rows="3"></textarea>
+										</div>
+									</div>
+									<div class="footer text-center">
+										<input name="ticket" type="submit"  class="btn btn-simple btn-success btn-lg text-blue" value="ارسال پیام"></input>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- left sidebar friends status -->
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<div id="onlineFriends">
+						<h3 class="about">مدال ها</h3>
+						<ul>
+							<li><button class="btn btn-success btn-xs">
+							<img class="" src="{% static 'pics/Trophy.jpg' %}" width="35px" alt=""><span class="">شروع قوی </span></span></button>
+							</li>
+							<li><button class="btn btn-success btn-xs">
+								<img class="" src="{% static 'pics/Trophy.jpg' %}" width="35px" alt=""><span class="">اولین قلم </span></span></button>
+							</li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+<!-- page footer -->
+	<footer class="footer">
+		<div class="container">
+			<nav class="pull-left">
+				<div id="share-buttons">
+					<a href="#" target="_blank">
+						<i class="fa fa-facebook-square"></i>
+					</a>
+					<a href="#" target="_blank">
+						<i class="fa fa-twitter-square"></i>
+					</a>
+					<a href="#" target="_blank">
+						<i class="fa fa-instagram"></i>
+					</a>
+					<a href="#" target="_blank">
+						<i class="fa fa-telegram"></i>
+					</a>
+				</div>
+			</nav>
+			<div class="copyright pull-right">
+				  <a class="text-success" href="" target="_blank">تمامی حقوق برای "خوشنویس" محفوظ می باشد.</a>.
+			</div>
+		</div>
+	</footer>
+
+	<script src="{% static 'js/jquery-3.1.1.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap1.min.js' %}"></script>
+</body>
+</html>
